@@ -71,7 +71,8 @@ body {
 }
 
 #logo a:hover img {
-	transform: scale(1.05);
+	transform: scale(1.1) rotate(5deg);
+	animation: bounce 0.6s ease-in-out;
 }
 
 #navigation {
@@ -123,7 +124,8 @@ body {
 	background: rgba(255, 255, 255, 0.1) !important;
 	color: var(--secondary-color);
 	transition: all 0.3s ease;
-	transform: translateY(-2px);
+	transform: translateY(-3px) scale(1.05);
+	text-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
 }
 
 #navigation li.selected a {
@@ -159,6 +161,12 @@ body {
 	margin: 20px 0;
 	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 	letter-spacing: 1px;
+	transition: all 0.4s ease;
+}
+
+#adbox h1:hover {
+	transform: scale(1.05);
+	text-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
 }
 
 #adbox p {
@@ -217,8 +225,9 @@ body {
 }
 
 .box:hover {
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-	transform: translateY(-5px);
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+	transform: translateY(-8px);
+	animation: glow 1.5s ease-in-out infinite;
 }
 
 .box > div {
@@ -382,8 +391,9 @@ body {
 }
 
 #sidebar .section:hover {
-	transform: translateY(-8px) scale(1.02);
-	box-shadow: 0 12px 28px rgba(0, 168, 168, 0.2);
+	transform: translateY(-12px) scale(1.05);
+	box-shadow: 0 16px 40px rgba(0, 168, 168, 0.35);
+	animation: pulse 1s ease-in-out infinite;
 }
 
 #sidebar .section img {
@@ -391,11 +401,11 @@ body {
 	height: 200px;
 	object-fit: cover;
 	display: block;
-	transition: transform 0.3s ease;
+	transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 #sidebar .section:hover img {
-	transform: scale(1.05);
+	transform: scale(1.15) rotate(2deg);
 }
 
 #sidebar .section a {
@@ -483,6 +493,12 @@ body {
 	width: 100%;
 	display: block;
 	clear: both;
+	transition: all 0.3s ease;
+}
+
+#footer p:hover {
+	text-shadow: 0 0 15px rgba(212, 165, 116, 0.6);
+	letter-spacing: 3px;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -679,8 +695,14 @@ body {
 	color: var(--dark-color);
 	margin: 0;
 	padding: 20px 20px 10px;
-	border-bottom: 2px solid var(--primary-color);
+	border-bottom: 3px solid var(--primary-color);
 	text-transform: capitalize;
+	transition: all 0.3s ease;
+}
+
+#rooms li:hover h4, #sites li:hover h4 {
+	color: var(--primary-color);
+	text-shadow: 0 0 8px rgba(0, 168, 168, 0.3);
 }
 
 #rooms li p, #sites li p {
@@ -699,8 +721,15 @@ body {
 	padding: 15px 20px;
 	margin: 0 !important;
 	background: linear-gradient(135deg, rgba(0, 168, 168, 0.05) 0%, rgba(212, 165, 116, 0.05) 100%);
-	border-top: 1px solid var(--border-color);
+	border-top: 2px solid var(--primary-color);
 	text-align: right;
+	transition: all 0.3s ease;
+}
+
+#rooms li:hover .rate {
+	background: linear-gradient(135deg, rgba(0, 168, 168, 0.15) 0%, rgba(212, 165, 116, 0.15) 100%);
+	color: #ffffff;
+	text-shadow: 0 0 8px rgba(0, 168, 168, 0.5);
 }
 
 #sites li p:last-child {
@@ -800,6 +829,90 @@ body {
 	}
 	100% {
 		background-position: 1000px 0;
+	}
+}
+
+@keyframes bounce {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes fadeInScale {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes slideInLeftStagger {
+	from {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInRightStagger {
+	from {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes wobble {
+	0%, 100% {
+		transform: translateX(0);
+	}
+	15% {
+		transform: translateX(-5px) rotate(-2deg);
+	}
+	30% {
+		transform: translateX(5px) rotate(2deg);
+	}
+	45% {
+		transform: translateX(-5px) rotate(-2deg);
+	}
+	60% {
+		transform: translateX(3px) rotate(1deg);
+	}
+	75% {
+		transform: translateX(-3px) rotate(-1deg);
+	}
+}
+
+@keyframes heartbeat {
+	0%, 100% {
+		transform: scale(1);
+	}
+	25% {
+		transform: scale(1.1);
+	}
+	50% {
+		transform: scale(1);
 	}
 }
 
