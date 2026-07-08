@@ -122,6 +122,8 @@ body {
 #navigation li a:hover {
 	background: rgba(255, 255, 255, 0.1) !important;
 	color: var(--secondary-color);
+	transition: all 0.3s ease;
+	transform: translateY(-2px);
 }
 
 #navigation li.selected a {
@@ -210,11 +212,13 @@ body {
 	margin-bottom: 30px;
 	overflow: hidden;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-	transition: box-shadow 0.3s ease;
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	animation: slideInUp 0.6s ease-out;
 }
 
 .box:hover {
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	transform: translateY(-5px);
 }
 
 .box > div {
@@ -373,12 +377,13 @@ body {
 	overflow: hidden;
 	border-radius: 8px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	transition: transform 0.3s ease;
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	animation: scaleIn 0.6s ease-out;
 }
 
 #sidebar .section:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+	transform: translateY(-8px) scale(1.02);
+	box-shadow: 0 12px 28px rgba(0, 168, 168, 0.2);
 }
 
 #sidebar .section img {
@@ -637,15 +642,20 @@ body {
 	border-radius: 12px;
 	overflow: hidden;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-	transition: all 0.3s ease;
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	padding: 0 !important;
 	margin: 0 !important;
 	min-height: 100%;
+	animation: slideInUp 0.6s ease-out;
 }
 
+#rooms li:nth-child(1), #sites li:nth-child(1) { animation-delay: 0.1s; }
+#rooms li:nth-child(2), #sites li:nth-child(2) { animation-delay: 0.2s; }
+#rooms li:nth-child(3), #sites li:nth-child(3) { animation-delay: 0.3s; }
+
 #rooms li:hover, #sites li:hover {
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-	transform: translateY(-5px);
+	box-shadow: 0 12px 32px rgba(0, 168, 168, 0.25);
+	transform: translateY(-8px) scale(1.02);
 }
 
 #rooms li img, #sites li img {
@@ -655,11 +665,11 @@ body {
 	display: block;
 	margin: 0;
 	padding: 0;
-	transition: transform 0.3s ease;
+	transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 #rooms li:hover img, #sites li:hover img {
-	transform: scale(1.05);
+	transform: scale(1.1) rotate(1deg);
 }
 
 #rooms li h4, #sites li h4 {
@@ -711,6 +721,122 @@ body {
 	}
 }
 
+@keyframes slideInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes scaleIn {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes pulse {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+}
+
+@keyframes glow {
+	0%, 100% {
+		box-shadow: 0 4px 12px rgba(0, 168, 168, 0.1);
+	}
+	50% {
+		box-shadow: 0 8px 24px rgba(0, 168, 168, 0.3);
+	}
+}
+
+@keyframes float {
+	0%, 100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -1000px 0;
+	}
+	100% {
+		background-position: 1000px 0;
+	}
+}
+
 .box {
 	animation: fadeIn 0.6s ease-out;
 }
+
+/* Apply animations to different elements */
+#header {
+	animation: slideInDown 0.8s ease-out;
+}
+
+@keyframes slideInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#adbox h1 {
+	animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+#adbox p {
+	animation: slideInUp 0.8s ease-out 0.4s both;
+}
+
+#navigation li {
+	animation: fadeIn 0.6s ease-out;
+}
+
+#navigation li:nth-child(1) { animation-delay: 0.1s; }
+#navigation li:nth-child(2) { animation-delay: 0.2s; }
+#navigation li:nth-child(3) { animation-delay: 0.3s; }
+#navigation li:nth-child(4) { animation-delay: 0.4s; }
+#navigation li:nth-child(5) { animation-delay: 0.5s; }
+#navigation li:nth-child(6) { animation-delay: 0.6s; }
+#navigation li:nth-child(7) { animation-delay: 0.7s; }
