@@ -466,14 +466,16 @@ body {
 }
 
 #footer p {
-	color: #ccc;
-	font-size: 14px;
-	margin-top: 25px;
-	padding-top: 25px;
+	color: #ffffff;
+	font-size: 18px;
+	margin-top: 30px;
+	padding: 30px 20px;
 	border-top: 2px solid rgba(255, 255, 255, 0.2);
 	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-weight: 500;
+	letter-spacing: 1.5px;
+	font-weight: 600;
+	text-align: center;
+	width: 100%;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
