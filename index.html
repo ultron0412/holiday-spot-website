@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Maldives Paradise - Your Ultimate Holiday Spot</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<script type="text/javascript">
+		// Assignment Requirement: Welcoming message with JS
+		window.onload = function() {
+			alert("Welcome to Maldives Paradise! We hope you enjoy exploring our beautiful holiday spot.");
+		};
+
+		// Assignment Requirement: Custom JS function taking user input
+		function calculateBudget() {
+			var days = document.getElementById("days").value;
+			var person = document.getElementById("people").value;
+			if(days > 0 && person > 0) {
+				var total = days * person * 150; // Estimated $150 per person per day
+				document.getElementById("budgetResult").innerHTML = "Estimated Budget for " + days + " days for " + person + " people: $" + total;
+			} else {
+				document.getElementById("budgetResult").innerHTML = "Please enter valid numbers for days and people.";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="background">
+		<div id="page">
+			<div id="header">
+				<div id="logo">
+					<a href="index.html"><img src="images/logo.png" alt="LOGO" height="112" width="118"></a>
+				</div>
+				<div id="navigation">
+					<ul>
+						<li class="selected">
+							<a href="index.html">Home</a>
+						</li>
+						<li>
+							<a href="about.html">About</a>
+						</li>
+						<li>
+							<a href="rooms.html">Rooms</a>
+						</li>
+						<li>
+							<a href="dives.html">Dive Site</a>
+						</li>
+						<li>
+							<a href="foods.html">Food</a>
+						</li>
+						<li>
+							<a href="news.html">News</a>
+						</li>
+						<li>
+							<a href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="contents">
+				<div id="adbox">
+					<img src="images/sea-sound.jpg" alt="Img">
+					<h1>Experience Paradise in the Maldives!</h1>
+					<p>
+						Welcome to our personal holiday spot website. This site is built based on a template from <a href="https://freewebsitetemplates.com/preview/beachresort/" target="_blank" style="color: yellow; font-weight: bold;">Free Website Templates (Original Template Link)</a>. We have modified it to showcase the beauty of the Maldives.
+					</p>
+				</div>
+				<div id="main">
+					<div class="box">
+						<div>
+							<div>
+								<h3>Plan Your Trip</h3>
+								<div style="padding: 20px; background: #f9f9f9; border-radius: 8px; margin-top: 10px;">
+									<p>Estimate your stay cost:</p>
+									<label>Number of Days: </label>
+									<input type="number" id="days" placeholder="e.g. 5" style="width: 50px;">
+									<label>Number of People: </label>
+									<input type="number" id="people" placeholder="e.g. 2" style="width: 50px;">
+									<button onclick="calculateBudget()" style="background: #e74c3c; color: white; border: none; padding: 5px 15px; cursor: pointer;">Calculate</button>
+									<p id="budgetResult" style="font-weight: bold; color: #2c3e50; margin-top: 10px;"></p>
+								</div>
+								<h3 style="margin-top: 20px;">Latest Travel Tips</h3>
+								<ul>
+									<li>
+										<h4><a href="news.html">Best Time to Visit Maldives</a></h4>
+										<span>July 08, 2026</span>
+										<p>
+											The best time to visit the Maldives is between November and April. The climate is warm and tropical, with average highs of 29°C to 31°C year-round.
+										</p>
+									</li>
+									<li>
+										<h4><a href="news.html">Top 5 Diving Spots in 2026</a></h4>
+										<span>June 15, 2026</span>
+										<p>
+											Discover the vibrant coral reefs and exotic marine life in our latest guide to the top diving destinations across the atolls.
+										</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="testimonials" class="box">
+						<div>
+							<div>
+								<h3>Guest Reviews</h3>
+								<p>
+									“Our stay at the Maldives Paradise was absolutely breathtaking. The crystal clear waters and the white sandy beaches were exactly what we needed for our summer getaway. Highly recommended!” <span>- <a href="index.html">Alex Johnson</a></span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="sidebar">
+					<div class="section">
+						<a href="rooms.html"><img src="images/rooms.png" alt="Img"></a>
+					</div>
+					<div class="section">
+						<a href="dives.html"><img src="images/dive-site.png" alt="Img"></a>
+					</div>
+					<div class="section">
+						<a href="foods.html"><img src="images/food.png" alt="Img"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div>
+				<ul class="navigation">
+					<li class="active">
+						<a href="index.html">Home</a>
+					</li>
+					<li>
+						<a href="about.html">About</a>
+					</li>
+					<li>
+						<a href="rooms.html">Rooms</a>
+					</li>
+					<li>
+						<a href="dives.html">Dive Site</a>
+					</li>
+					<li>
+						<a href="foods.html">Food</a>
+					</li>
+					<li>
+						<a href="news.html">News</a>
+					</li>
+					<li>
+						<a href="contact.html">Contact</a>
+					</li>
+				</ul>
+				<div id="connect">
+					<a href="http://pinterest.com/" target="_blank" class="pinterest"></a> <a href="http://facebook.com/" target="_blank" class="facebook"></a> <a href="http://twitter.com/" target="_blank" class="twitter"></a> <a href="http://google.com/" target="_blank" class="googleplus"></a>
+				</div>
+			</div>
+			<p>
+				© 2026 Maldives Paradise. All Rights Reserved | Student ID: 12345678 | Name: John Doe
+			</p>
+		</div>
+	</div>
+</body>
+</html>
