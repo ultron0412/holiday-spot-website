@@ -665,6 +665,8 @@ body {
 	margin: 0 !important;
 	min-height: 100%;
 	animation: slideInUp 0.6s ease-out;
+	position: relative;
+	z-index: 1;
 }
 
 #rooms li:nth-child(1), #sites li:nth-child(1) { animation-delay: 0.1s; }
@@ -673,7 +675,8 @@ body {
 
 #rooms li:hover, #sites li:hover {
 	box-shadow: 0 12px 32px rgba(0, 168, 168, 0.25);
-	transform: translateY(-8px) scale(1.02);
+	transform: translateY(-4px);
+	z-index: 10;
 }
 
 #rooms li img, #sites li img {
@@ -687,7 +690,7 @@ body {
 }
 
 #rooms li:hover img, #sites li:hover img {
-	transform: scale(1.1) rotate(1deg);
+	transform: scale(1.08) rotate(0.5deg);
 }
 
 #rooms li h4, #sites li h4 {
