@@ -496,7 +496,7 @@ body {
 		height: 250px;
 	}
 
-	#rooms {
+	#rooms, #sites {
 		grid-template-columns: 1fr;
 		gap: 20px;
 	}
@@ -532,21 +532,21 @@ body {
 		height: 60px;
 	}
 
-	#rooms {
+	#rooms, #sites {
 		grid-template-columns: 1fr;
 		gap: 15px;
 	}
 
-	#rooms li img {
+	#rooms li img, #sites li img {
 		height: 200px;
 	}
 
-	#rooms li h4 {
+	#rooms li h4, #sites li h4 {
 		font-size: 18px;
 		padding: 15px 15px 8px;
 	}
 
-	#rooms li p {
+	#rooms li p, #sites li p {
 		font-size: 14px;
 		padding: 10px 15px;
 	}
@@ -597,8 +597,8 @@ body {
 	display: none;
 }
 
-/* ===== ROOM CARDS STYLING ===== */
-#rooms {
+/* ===== ROOM CARDS & DIVE SITES STYLING ===== */
+#rooms, #sites {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 30px;
@@ -607,7 +607,7 @@ body {
 	margin: 0 !important;
 }
 
-#rooms li {
+#rooms li, #sites li {
 	display: flex;
 	flex-direction: column;
 	background: #ffffff;
@@ -621,12 +621,12 @@ body {
 	min-height: 100%;
 }
 
-#rooms li:hover {
+#rooms li:hover, #sites li:hover {
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 	transform: translateY(-5px);
 }
 
-#rooms li img {
+#rooms li img, #sites li img {
 	width: 100%;
 	height: 250px;
 	object-fit: cover;
@@ -636,11 +636,11 @@ body {
 	transition: transform 0.3s ease;
 }
 
-#rooms li:hover img {
+#rooms li:hover img, #sites li:hover img {
 	transform: scale(1.05);
 }
 
-#rooms li h4 {
+#rooms li h4, #sites li h4 {
 	font: 600 22px 'Segoe UI', sans-serif;
 	color: var(--dark-color);
 	margin: 0;
@@ -649,7 +649,7 @@ body {
 	text-transform: capitalize;
 }
 
-#rooms li p {
+#rooms li p, #sites li p {
 	font-size: 15px;
 	line-height: 1.6;
 	color: var(--text-color);
@@ -667,6 +667,14 @@ body {
 	background: linear-gradient(135deg, rgba(0, 168, 168, 0.05) 0%, rgba(212, 165, 116, 0.05) 100%);
 	border-top: 1px solid var(--border-color);
 	text-align: right;
+}
+
+#sites li p:last-child {
+	background: #f9f9f9;
+	font-size: 14px;
+	color: var(--primary-color);
+	border-top: 1px dashed var(--border-color);
+	padding: 12px 20px;
 }
 
 /* ===== ANIMATIONS ===== */
