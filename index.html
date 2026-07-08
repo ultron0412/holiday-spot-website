@@ -1,35 +1,63 @@
 <!DOCTYPE html>
-<!-- Website template by freewebsitetemplates.com -->
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Maldives Paradise - Your Ultimate Holiday Spot with luxury resorts, diving sites, and unforgettable experiences.">
 	<title>Maldives Paradise - Your Ultimate Holiday Spot</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<script type="text/javascript">
-		// Assignment Requirement: Welcoming message with JS
-		window.onload = function() {
-			alert("Welcome to Maldives Paradise! We hope you enjoy exploring our beautiful holiday spot.");
-		};
+		// Assignment Requirement: Welcoming message with JS (only on index page)
+		window.addEventListener('load', function() {
+			// Show welcome message after a brief delay
+			setTimeout(function() {
+				alert("Welcome to Maldives Paradise! 🌴 We hope you enjoy exploring our beautiful holiday spot. Discover luxury resorts, pristine beaches, and unforgettable diving experiences.");
+			}, 500);
+		});
 
-		// Assignment Requirement: Custom JS function taking user input
+		// Assignment Requirement: Custom JS function with user input
 		function calculateBudget() {
-			var days = document.getElementById("days").value;
-			var person = document.getElementById("people").value;
-			if(days > 0 && person > 0) {
-				var total = days * person * 150; // Estimated $150 per person per day
-				document.getElementById("budgetResult").innerHTML = "Estimated Budget for " + days + " days for " + person + " people: $" + total;
+			var days = parseFloat(document.getElementById("days").value);
+			var people = parseFloat(document.getElementById("people").value);
+			
+			if(days > 0 && people > 0) {
+				var costPerPersonPerDay = 150; // Base cost in USD
+				var total = days * people * costPerPersonPerDay;
+				var perPersonTotal = days * costPerPersonPerDay;
+				
+				document.getElementById("budgetResult").innerHTML = 
+					"<strong>✓ Budget Estimate:</strong><br>" +
+					"Total for " + people + " people, " + days + " days: <strong>$" + total.toFixed(2) + "</strong><br>" +
+					"Per person: <strong>$" + perPersonTotal.toFixed(2) + "</strong>";
+				document.getElementById("budgetResult").style.display = "block";
 			} else {
-				document.getElementById("budgetResult").innerHTML = "Please enter valid numbers for days and people.";
+				document.getElementById("budgetResult").innerHTML = "❌ Please enter valid numbers for days and people.";
+				document.getElementById("budgetResult").style.display = "block";
 			}
 		}
+
+		// Allow Enter key to trigger calculation
+		document.addEventListener('DOMContentLoaded', function() {
+			var inputs = document.querySelectorAll('.budget-calculator input');
+			inputs.forEach(function(input) {
+				input.addEventListener('keypress', function(e) {
+					if(e.key === 'Enter') {
+						calculateBudget();
+					}
+				});
+			});
+		});
 	</script>
 </head>
 <body>
 	<div id="background">
 		<div id="page">
+			<!-- HEADER & NAVIGATION -->
 			<div id="header">
 				<div id="logo">
-					<a href="index.html"><img src="images/logo_new.png" alt="Maldives Paradise Logo" style="height: 112px; width: auto;"></a>
+					<a href="index.html" title="Maldives Paradise Home">
+						<img src="images/logo_new.png" alt="Maldives Paradise Logo" style="height: 80px; width: auto;">
+					</a>
 				</div>
 				<div id="navigation">
 					<ul>
@@ -57,72 +85,99 @@
 					</ul>
 				</div>
 			</div>
+
+			<!-- HERO SECTION -->
 			<div id="contents">
 				<div id="adbox">
-					<img src="images/sea-sound.jpg" alt="Img">
-					<h1>Experience Paradise in the Maldives!</h1>
+					<h1>Experience Paradise in the Maldives</h1>
 					<p>
-						Welcome to our personal holiday spot website. This site is built based on a template from <a href="https://freewebsitetemplates.com/preview/beachresort/" target="_blank" style="color: yellow; font-weight: bold;">Free Website Templates (Original Template Link)</a>. We have modified it to showcase the beauty of the Maldives.
+						Discover luxury resorts, pristine beaches, and world-class diving experiences. This website is built based on a template from <a href="https://freewebsitetemplates.com/preview/beachresort/" target="_blank">Free Website Templates (Original Template)</a>, extensively customized to showcase the beauty of the Maldives.
 					</p>
 				</div>
+
+				<!-- MAIN CONTENT -->
 				<div id="main">
+					<!-- BUDGET CALCULATOR SECTION -->
 					<div class="box">
 						<div>
 							<div>
-								<h3>Plan Your Trip</h3>
-								<div style="padding: 20px; background: #f9f9f9; border-radius: 8px; margin-top: 10px;">
-									<p>Estimate your stay cost:</p>
-									<label>Number of Days: </label>
-									<input type="number" id="days" placeholder="e.g. 5" style="width: 50px;">
-									<label>Number of People: </label>
-									<input type="number" id="people" placeholder="e.g. 2" style="width: 50px;">
-									<button onclick="calculateBudget()" style="background: #e74c3c; color: white; border: none; padding: 5px 15px; cursor: pointer;">Calculate</button>
-									<p id="budgetResult" style="font-weight: bold; color: #2c3e50; margin-top: 10px;"></p>
+								<h3>Plan Your Perfect Getaway</h3>
+								<div class="budget-calculator">
+									<p>💰 Estimate your stay cost instantly:</p>
+									<label for="days">Days:</label>
+									<input type="number" id="days" placeholder="e.g., 5" min="1" max="365">
+									
+									<label for="people">People:</label>
+									<input type="number" id="people" placeholder="e.g., 2" min="1" max="20">
+									
+									<button onclick="calculateBudget()" type="button">Calculate Budget</button>
+									<div id="budgetResult" style="display: none;"></div>
 								</div>
-								<h3 style="margin-top: 20px;">Latest Travel Tips</h3>
+							</div>
+						</div>
+					</div>
+
+					<!-- LATEST NEWS SECTION -->
+					<div class="box">
+						<div>
+							<div>
+								<h3>Latest Travel Tips</h3>
 								<ul>
 									<li>
 										<h4><a href="news.html">Best Time to Visit Maldives</a></h4>
-										<span>July 08, 2026</span>
+										<span>📅 July 08, 2026</span>
 										<p>
-											The best time to visit the Maldives is between November and April. The climate is warm and tropical, with average highs of 29°C to 31°C year-round.
+											The best time to visit the Maldives is between November and April. The climate is warm and tropical, with average highs of 29°C to 31°C year-round. Experience perfect weather for beach activities and water sports.
 										</p>
 									</li>
 									<li>
 										<h4><a href="news.html">Top 5 Diving Spots in 2026</a></h4>
-										<span>June 15, 2026</span>
+										<span>📅 June 15, 2026</span>
 										<p>
-											Discover the vibrant coral reefs and exotic marine life in our latest guide to the top diving destinations across the atolls.
+											Discover the vibrant coral reefs and exotic marine life in our latest guide to the top diving destinations across the atolls. From manta rays to colorful fish, the Maldives offers unforgettable underwater adventures.
 										</p>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
+
+					<!-- TESTIMONIALS SECTION -->
 					<div id="testimonials" class="box">
 						<div>
 							<div>
 								<h3>Guest Reviews</h3>
 								<p>
-									“Our stay at the Maldives Paradise was absolutely breathtaking. The crystal clear waters and the white sandy beaches were exactly what we needed for our summer getaway. Highly recommended!” <span>- <a href="index.html">Alex Johnson</a></span>
+									"Our stay at Maldives Paradise was absolutely breathtaking. The crystal clear waters and white sandy beaches were exactly what we needed for our summer getaway. The staff was incredibly welcoming, and every moment felt like a dream. Highly recommended for anyone seeking the ultimate tropical escape!" 
+									<span>— <a href="#">Alex Johnson</a>, Travel Enthusiast</span>
 								</p>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<!-- SIDEBAR -->
 				<div id="sidebar">
 					<div class="section">
-						<a href="rooms.html"><img src="images/rooms.png" alt="Img"></a>
+						<a href="rooms.html" title="View our luxury rooms">
+							<img src="images/rooms.png" alt="Luxury Resort Rooms">
+						</a>
 					</div>
 					<div class="section">
-						<a href="dives.html"><img src="images/dive-site.png" alt="Img"></a>
+						<a href="dives.html" title="Explore dive sites">
+							<img src="images/dive-site.png" alt="Diving Sites">
+						</a>
 					</div>
 					<div class="section">
-						<a href="foods.html"><img src="images/food.png" alt="Img"></a>
+						<a href="foods.html" title="Discover our cuisine">
+							<img src="images/food.png" alt="Gourmet Food">
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- FOOTER -->
 		<div id="footer">
 			<div>
 				<ul class="navigation">
@@ -149,7 +204,10 @@
 					</li>
 				</ul>
 				<div id="connect">
-					<a href="http://pinterest.com/" target="_blank" class="pinterest"></a> <a href="http://facebook.com/" target="_blank" class="facebook"></a> <a href="http://twitter.com/" target="_blank" class="twitter"></a> <a href="http://google.com/" target="_blank" class="googleplus"></a>
+					<a href="https://www.pinterest.com/" target="_blank" class="pinterest" title="Follow us on Pinterest"></a>
+					<a href="https://www.facebook.com/" target="_blank" class="facebook" title="Like us on Facebook"></a>
+					<a href="https://www.twitter.com/" target="_blank" class="twitter" title="Follow us on Twitter"></a>
+					<a href="https://www.google.com/" target="_blank" class="googleplus" title="Follow us on Google+"></a>
 				</div>
 			</div>
 			<p>

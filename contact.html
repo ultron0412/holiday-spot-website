@@ -1,17 +1,133 @@
 <!DOCTYPE html>
-<!-- Website template by freewebsitetemplates.com -->
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Contact - Maldives Paradise</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<style>
+		#contact {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 40px;
+			align-items: start;
+		}
+
+		#contact .info {
+			background: linear-gradient(135deg, #f0f8f8 0%, #ffffff 100%);
+			padding: 30px;
+			border-radius: 8px;
+			border-left: 4px solid var(--primary-color);
+		}
+
+		#contact .info h4 {
+			color: var(--primary-color);
+			margin-top: 20px;
+			margin-bottom: 10px;
+			font-size: 16px;
+		}
+
+		#contact .info h4:first-child {
+			margin-top: 0;
+		}
+
+		#contact .info p {
+			color: var(--text-color);
+			margin: 5px 0;
+			font-size: 15px;
+		}
+
+		#contact form {
+			background: #ffffff;
+			border: 1px solid var(--border-color);
+			border-radius: 8px;
+			padding: 30px;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+		}
+
+		#contact form table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		#contact form table td {
+			padding: 15px 0;
+		}
+
+		#contact table td:first-child {
+			font-size: 14px;
+			font-weight: 600;
+			color: var(--dark-color);
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			width: 30%;
+		}
+
+		#contact table td.txtarea {
+			vertical-align: top;
+			padding-top: 20px;
+		}
+
+		#contact form input,
+		#contact form textarea {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid var(--border-color);
+			border-radius: 4px;
+			font-family: 'Segoe UI', sans-serif;
+			font-size: 14px;
+			transition: border-color 0.3s ease;
+		}
+
+		#contact form input:focus,
+		#contact form textarea:focus {
+			outline: none;
+			border-color: var(--primary-color);
+			box-shadow: 0 0 0 3px rgba(0, 168, 168, 0.1);
+		}
+
+		#contact form textarea {
+			resize: vertical;
+			min-height: 150px;
+		}
+
+		#contact input.btn {
+			background: linear-gradient(135deg, var(--primary-color) 0%, #008080 100%);
+			color: #ffffff;
+			border: none;
+			padding: 12px 30px;
+			font-weight: 600;
+			font-size: 14px;
+			text-transform: uppercase;
+			cursor: pointer;
+			border-radius: 4px;
+			transition: all 0.3s ease;
+			width: auto;
+			height: auto;
+		}
+
+		#contact input.btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(0, 168, 168, 0.3);
+		}
+
+		@media (max-width: 768px) {
+			#contact {
+				grid-template-columns: 1fr;
+				gap: 30px;
+			}
+		}
+	</style>
 </head>
 <body>
 	<div id="background">
 		<div id="page">
+			<!-- HEADER & NAVIGATION -->
 			<div id="header">
 				<div id="logo">
-					<a href="index.html"><img src="images/logo_new.png" alt="Maldives Paradise Logo" style="height: 112px; width: auto;"></a>
+					<a href="index.html" title="Maldives Paradise Home">
+						<img src="images/logo_new.png" alt="Maldives Paradise Logo" style="height: 80px; width: auto;">
+					</a>
 				</div>
 				<div id="navigation">
 					<ul>
@@ -39,42 +155,59 @@
 					</ul>
 				</div>
 			</div>
+
+			<!-- CONTENT -->
 			<div id="contents">
 				<div class="box">
 					<div>
-						<div class="body">
-							<h1>Contact Us</h1>
+						<div>
+							<h1>Get in Touch</h1>
+							<p>Have questions or ready to book your dream vacation? Contact us today and let our team help you plan the perfect Maldives getaway.</p>
+							
 							<div id="contact">
-								<p>
-									<span>Address:</span> 123 Paradise Road, Malé Atoll, Maldives
-								</p>
-								<p>
-									<span>Phone:</span> +960 123 4567
-								</p>
-								<p>
-									<span>Email:</span> info@maldivesparadise.com
-								</p>
+								<div class="info">
+									<h4>📍 Address</h4>
+									<p>123 Paradise Road</p>
+									<p>Malé Atoll, Maldives</p>
+
+									<h4>📞 Phone</h4>
+									<p>+960 123 4567</p>
+									<p>+960 123 4568</p>
+
+									<h4>✉️ Email</h4>
+									<p>info@maldivesparadise.com</p>
+									<p>reservations@maldivesparadise.com</p>
+
+									<h4>🕐 Hours</h4>
+									<p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+									<p>Saturday - Sunday: 9:00 AM - 5:00 PM</p>
+								</div>
+
 								<form action="index.html" method="post">
 									<table>
 										<tr>
 											<td>Name:</td>
-											<td><input type="text" name="name" class="txtfield"></td>
+											<td><input type="text" name="name" placeholder="Your Full Name" required></td>
 										</tr>
 										<tr>
 											<td>Email:</td>
-											<td><input type="text" name="email" class="txtfield"></td>
+											<td><input type="email" name="email" placeholder="your@email.com" required></td>
+										</tr>
+										<tr>
+											<td>Phone:</td>
+											<td><input type="tel" name="phone" placeholder="+960 XXX XXXX"></td>
 										</tr>
 										<tr>
 											<td>Subject:</td>
-											<td><input type="text" name="subject" class="txtfield"></td>
+											<td><input type="text" name="subject" placeholder="How can we help?" required></td>
 										</tr>
 										<tr>
 											<td class="txtarea">Message:</td>
-											<td><textarea name="message"></textarea></td>
+											<td><textarea name="message" placeholder="Tell us more about your inquiry..." required></textarea></td>
 										</tr>
 										<tr>
 											<td></td>
-											<td><input type="submit" value="" class="btn"></td>
+											<td><input type="submit" value="Send Message" class="btn"></td>
 										</tr>
 									</table>
 								</form>
@@ -82,8 +215,29 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- SIDEBAR -->
+				<div id="sidebar">
+					<div class="section">
+						<a href="rooms.html" title="View our luxury rooms">
+							<img src="images/rooms.png" alt="Luxury Resort Rooms">
+						</a>
+					</div>
+					<div class="section">
+						<a href="dives.html" title="Explore dive sites">
+							<img src="images/dive-site.png" alt="Diving Sites">
+						</a>
+					</div>
+					<div class="section">
+						<a href="foods.html" title="Discover our cuisine">
+							<img src="images/food.png" alt="Gourmet Food">
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
+
+		<!-- FOOTER -->
 		<div id="footer">
 			<div>
 				<ul class="navigation">
@@ -110,7 +264,10 @@
 					</li>
 				</ul>
 				<div id="connect">
-					<a href="http://pinterest.com/" target="_blank" class="pinterest"></a> <a href="http://facebook.com/" target="_blank" class="facebook"></a> <a href="http://twitter.com/" target="_blank" class="twitter"></a> <a href="http://google.com/" target="_blank" class="googleplus"></a>
+					<a href="https://www.pinterest.com/" target="_blank" class="pinterest" title="Follow us on Pinterest"></a>
+					<a href="https://www.facebook.com/" target="_blank" class="facebook" title="Like us on Facebook"></a>
+					<a href="https://www.twitter.com/" target="_blank" class="twitter" title="Follow us on Twitter"></a>
+					<a href="https://www.google.com/" target="_blank" class="googleplus" title="Follow us on Google+"></a>
 				</div>
 			</div>
 			<p>
